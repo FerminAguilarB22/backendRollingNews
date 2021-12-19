@@ -2,6 +2,7 @@ import express from "express";
 import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
+import router from "./routes/noticias.routes";
 
 const app = express();
 app.set('port', process.env.PORT || 3005);
@@ -15,7 +16,4 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, '../public')))
 
-
-app.get('/', (req,res)=>{
-    res.send('hola desde el servidor')
-})
+app.use('/rollingnews', router);
