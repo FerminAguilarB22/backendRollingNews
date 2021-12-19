@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 import router from "./routes/noticias.routes";
+import './database'
 
 const app = express();
 app.set('port', process.env.PORT || 3005);
