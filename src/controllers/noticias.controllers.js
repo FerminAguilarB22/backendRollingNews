@@ -2,20 +2,6 @@ import Noticia from "../models/noticia";
 
 const noticiaCtrl = {};
 
-noticiaCtrl.listarNoticias = async(req,res)=>{
-    try{
-        const listaNoticia = await Noticia.find();
-        res.status(200).json(listaNoticia);
-    }catch(error){
-        res.status(404).json({
-            mensaje: 'Error al intentar obtener las noticias'
-        })
-    }
-    res.send ('listar noticias');
-}
-noticiaCtrl.borrarNoticia = (req,res)=>{
-    res.send ('borrar una noticia');
-}
 noticiaCtrl.crearNoticia = async (req,res)=>{
     try{
         const noticiaNueva = new Noticia({
@@ -43,13 +29,55 @@ noticiaCtrl.crearNoticia = async (req,res)=>{
         })
         }
     }
+noticiaCtrl.listarNoticias = async(req,res)=>{
+    try{
+        const listaNoticia = await Noticia.find();
+        res.status(200).json(listaNoticia);
+    }catch(error){
+        res.status(404).json({
+            mensaje: 'Error al intentar obtener las noticias'
+        })
+    }
+    res.send ('listar noticias');
+}
+noticiaCtrl.obtenerNoticia = async (req,res)=>{
+    try{
+        const noticia = await Noticia.findById(req.params.id);
+        res.status(200).json(noticia);
+    }catch(error){
+        console.log(error);
+        res.status(404).json({
+            mensaje:'No se pudo encontrar la noticia buscada'
+        });
+    }
+}
+noticiaCtrl.editarNoticia = async(req,res)=>{
+    try{
+        await Noticia.findByIdAndUpdate(req.params.id,req.body);
+        res.status(200).json({
+            mensaje:'se modifico con exito su noticia'
+        })
+    }catch(error){
+        console.log(error);
+        res.status(404).json({
+            mensaje:'No se pudo editar la noticia deseada'
+        });
+    }
+}
+noticiaCtrl.borrarNoticia = async(req,res)=>{
+    try{
+        await Noticia.findByIdAndDelete(req.params.id);
+        res.status(200).json({
+            mensaje:'se borro correctamente su noticia'
+        })
+    }catch(error){
+        console.log(error);
+        res.status(404).json({
+            mensaje:'no se pudo borrar la noticia deseada'
+        })
+    }
+}
 
-noticiaCtrl.editarNoticia = (req,res)=>{
-    res.send ('editar una noticia');
-}
-noticiaCtrl.obtenerNoticia = (req,res)=>{
-    res.send ('obtener una noticia por id');
-}
 
 
 export default noticiaCtrl;
