@@ -38,7 +38,7 @@ noticiaCtrl.listarNoticias = async(req,res)=>{
             mensaje: 'Error al intentar obtener las noticias'
         })
     }
-    res.send ('listar noticias');
+    
 }
 noticiaCtrl.obtenerNoticia = async (req,res)=>{
     try{

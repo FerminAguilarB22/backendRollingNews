@@ -4,6 +4,7 @@ import cors from 'cors';
 import path from 'path';
 import router from "./routes/noticias.routes";
 import './database'
+import routerCat from "./routes/categorias.routes";
 
 const app = express();
 app.set('port', process.env.PORT || 3005);
@@ -17,4 +18,5 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, '../public')))
 
-app.use('/rollingnews', router);
+
+app.use('/rollingnews', router, routerCat);
