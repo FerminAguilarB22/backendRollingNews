@@ -1,24 +1,31 @@
 import Categoria from "../models/categorias";
+import { campoRequerido } from "../helpers";
 
 const categoriaCtrl ={};
 
 categoriaCtrl.crearCategoria = async (req,res)=>{
-    try{
-        const categoriaNueva = new Categoria({
-            categoria: req.body.categoria
-            
-        })
-        await categoriaNueva.save();
-
-        res.status(201).json({
-            mensaje: 'Categoria agregada'
-        })
-
-    }catch(error){
+    if(campoRequerido(req.body.categoria)){
+        try{
+            const categoriaNueva = new Categoria({
+                categoria: req.body.categoria
+                
+            })
+            await categoriaNueva.save();
+    
+            res.status(201).json({
+                mensaje: 'Categoria agregada'
+            })
+    
+        }catch(error){
+            res.status(400).json({
+                mensaje:'Error al agregar la categoria'
+            })
+            }
+    }else{
         res.status(400).json({
-            mensaje:'Error al agregar la categoria'
+            mensaje:'error en la validacion de datos'
         })
-        }
+    }
     }
 categoriaCtrl.listarCategoria = async(req,res)=>{
     try{

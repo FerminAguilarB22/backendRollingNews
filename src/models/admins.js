@@ -1,6 +1,6 @@
-import mongoose,{ Schema } from "mongoose";
+import mongoose,{Schema} from "mongoose";
 
-const usuarioSchema = new Schema({
+const adminSchema = new Schema ({
     email:{
         type: String,
         unique:true,
@@ -16,6 +16,6 @@ const usuarioSchema = new Schema({
     }
 })
 
-const Usuario = mongoose.model("usuario", usuarioSchema);
+const Admin = mongoose.model("admin",adminSchema);
 
-export default Usuario;
+export default Admin;
