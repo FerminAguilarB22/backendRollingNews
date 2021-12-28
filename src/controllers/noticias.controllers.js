@@ -4,6 +4,7 @@ import { campoRequerido, validarCorreo, validarImagen } from "../helpers";
 const noticiaCtrl = {};
 
 noticiaCtrl.crearNoticia = async (req, res) => {
+
   // if (
   //   (campoRequerido(req.body.autor),
   //   campoRequerido( req.body.titulo),
@@ -25,7 +26,7 @@ noticiaCtrl.crearNoticia = async (req, res) => {
         fechanoticia: req.body.fechanoticia,
         destacada: req.body.destacada,
         principal: req.body.principal,
-        categoria: req.body.categoria,
+        categoria: req.body.categoria
       });
       await noticiaNueva.save();
 
