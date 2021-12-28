@@ -1,5 +1,5 @@
 const campoRequerido = (input) => {
-    if (input.trim() === "") {
+    if (input.trim().length > 0) {
       return false;
     } else {
       return true;

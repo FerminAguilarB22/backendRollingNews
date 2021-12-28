@@ -4,16 +4,16 @@ import { campoRequerido, validarCorreo, validarImagen } from "../helpers";
 const noticiaCtrl = {};
 
 noticiaCtrl.crearNoticia = async (req, res) => {
-  if (
-    (campoRequerido(req.body.autor),
-    campoRequerido( req.body.titulo),
-    campoRequerido(req.body.bajadanoticia),
-    campoRequerido(req.body.leadnoticia),
-    campoRequerido(req.body.cuerponoticia),
-    campoRequerido(req.body.fechanoticia),
-    campoRequerido(req.body.destacada),
-    campoRequerido(req.body.principal),
-    campoRequerido(req.body.categoria))) {
+  // if (
+  //   (campoRequerido(req.body.autor),
+  //   campoRequerido( req.body.titulo),
+  //   campoRequerido(req.body.bajadanoticia),
+  //   campoRequerido(req.body.leadnoticia),
+  //   campoRequerido(req.body.cuerponoticia),
+  //   campoRequerido(req.body.fechanoticia),
+  //   campoRequerido(req.body.destacada),
+  //   campoRequerido(req.body.principal),
+  //   campoRequerido(req.body.categoria))) {
     try {
       const noticiaNueva = new Noticia({
         autor: req.body.autor,
@@ -33,15 +33,16 @@ noticiaCtrl.crearNoticia = async (req, res) => {
         mensaje: "Noticia agregada",
       });
     } catch (error) {
+      console.log(error);
       res.status(400).json({
         mensaje: "Error al agregar la noticia",
       });
     }
-  } else {
-      res.status(400).json({
-          mensaje:'error en la validacion de datos'
-      })
-  }
+  // } else {
+  //     res.status(400).json({
+  //         mensaje:'error en la validacion de datos'
+  //     })
+  // }
 };
 noticiaCtrl.listarNoticias = async (req, res) => {
   try {
