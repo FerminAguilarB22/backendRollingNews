@@ -13,9 +13,7 @@ noticiaCtrl.crearNoticia = async (req, res) => {
     campoRequerido(req.body.fechanoticia),
     campoRequerido(req.body.destacada),
     campoRequerido(req.body.principal),
-    campoRequerido(req.body.categoria),
-    validarImagen(req.body.imagen))
-  ) {
+    campoRequerido(req.body.categoria))) {
     try {
       const noticiaNueva = new Noticia({
         autor: req.body.autor,
