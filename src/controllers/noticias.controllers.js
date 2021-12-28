@@ -1,32 +1,23 @@
 import Noticia from "../models/noticia";
-import { campoRequerido, validarCorreo, validarImagen } from "../helpers";
+
 
 const noticiaCtrl = {};
 
 noticiaCtrl.crearNoticia = async (req, res) => {
 
-  // if (
-  //   (campoRequerido(req.body.autor),
-  //   campoRequerido( req.body.titulo),
-  //   campoRequerido(req.body.bajadanoticia),
-  //   campoRequerido(req.body.leadnoticia),
-  //   campoRequerido(req.body.cuerponoticia),
-  //   campoRequerido(req.body.fechanoticia),
-  //   campoRequerido(req.body.destacada),
-  //   campoRequerido(req.body.principal),
-  //   campoRequerido(req.body.categoria))) {
+
     try {
       const noticiaNueva = new Noticia({
         autor: req.body.autor,
         titulo: req.body.titulo,
         bajadanoticia: req.body.bajadanoticia,
         imagen: req.body.imagen,
+        categoria: req.body.categoria,
         leadnoticia: req.body.leadnoticia,
         cuerponoticia: req.body.cuerponoticia,
         fechanoticia: req.body.fechanoticia,
         destacada: req.body.destacada,
-        principal: req.body.principal,
-        categoria: req.body.categoria
+        principal: req.body.principal
       });
       await noticiaNueva.save();
 
@@ -39,11 +30,7 @@ noticiaCtrl.crearNoticia = async (req, res) => {
         mensaje: "Error al agregar la noticia",
       });
     }
-  // } else {
-  //     res.status(400).json({
-  //         mensaje:'error en la validacion de datos'
-  //     })
-  // }
+
 };
 noticiaCtrl.listarNoticias = async (req, res) => {
   try {
