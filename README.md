@@ -1,7 +1,7 @@
 
 # backendRollingNews
 ## **Descripción del repositorio.**
-Este proyecto es una página de noticias realizado con JS, node y React
+Este proyecto es el backend de la página principal de noticias realizada con JS, node y React
 
 ## **Software, Librerías y Frameworks**
 - Nodemon
