@@ -34,5 +34,5 @@ app.use(express.json());
 - Mariano Pujol
 
 ## **Proyecto Finalizado**
-Para clonar el repositorio FrontEnd utlizar: `git clone` https://github.com/Charlycarral/rollingNews.git
-Para clonar el repositorio BackEnd utilizar: `git clone`  https://github.com/FerminAguilarB22/backendRollingNews.git
+- Para clonar el repositorio FrontEnd utlizar: `git clone` https://github.com/Charlycarral/rollingNews.git
+- Para clonar el repositorio BackEnd utilizar: `git clone`  https://github.com/FerminAguilarB22/backendRollingNews.git
